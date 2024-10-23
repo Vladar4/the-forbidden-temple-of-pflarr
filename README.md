@@ -11,6 +11,10 @@ Made with [Retrotype](https://github.com/Vladar4/retrotype/), so make sure to do
 - `retrotype.sty`
 - `TT2020.fontspec`
 
+Links to the fonts used:
+- [TT2020](https://copypaste.wtf/TT2020/docs/download.html)
+- [Truetypewriter PolyglOTT](https://online-fonts.com/fonts/truetypewriter-polyglott)
+
 ![The Forbidden Temple of Pflarr](cover.jpg)
 
 - [Retrotype](https://github.com/Vladar4/retrotype/)
