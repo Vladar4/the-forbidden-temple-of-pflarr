@@ -1,0 +1,1032 @@
+% !TeX program = xelatex
+\documentclass[english,11pt,openany,letterpaper,twocolumn]{book}
+\usepackage{babel}
+\usepackage{retrotype}
+%\usepackage{showframe}
+%\usepackage{lipsum}
+
+% HYPERSETUP
+
+\usepackage{hyperref}
+\usepackage{bookmark}
+
+\special{pdf:minorversion 4}
+
+\def\title{The Forbidden Temple of Pflarr}
+\def\author{Vladimir Arabadzhi}
+\def\license{%
+	``\title''\\is unofficial Fan Content permitted under the Fan Content Policy. Not~approved/endorsed by Wizards. Portions of the materials used are property of Wizards of the Coast. ©Wizards of the Coast LLC.}
+\def\licenselink{https://company.wizards.com/en/legal/fancontentpolicy}
+\def\modVer{1.1}
+\def\modDate{2024-10-23}
+
+\hypersetup{%
+	pdfborderstyle={/S/U/W 1},% underlined hyperlinks
+	bookmarksdepth=1,% section level depth bookmarks
+	pdftitle={\title},
+	pdfauthor={\author},
+	pdfkeywords={D\&D;Adventure;RPG;Mystara},
+}
+
+\newcommand{\half}{\textsuperscript{1}/\textsubscript{2}}
+
+\smalltitles
+
+\begin{document}
+\color{darkgray}
+
+\addBg{\pageTiles{img/paper.jpg}}
+
+\begin{titlepage}
+
+\begin{Verbatim}
+       _____ _            _____          _     _     _     _                 
+      |_   _| |__   ___  |  ___|__  _ __| |__ (_) __| | __| | ___ _ __       
+        | | | '_ \ / _ \ | |_ / _ \| '__| '_ \| |/ _` |/ _` |/ _ \ '_ \      
+        | | | | | |  __/ |  _| (_) | |  | |_) | | (_| | (_| |  __/ | | |     
+        |_| |_| |_|\___| |_|  \___/|_|  |_.__/|_|\__,_|\__,_|\___|_| |_|     
+   _____                    _               __   ____   __ _                 
+  |_   _|__ _ __ ___  _ __ | | ___    ___  / _| |  _ \ / _| | __ _ _ __ _ __ 
+    | |/ _ \ '_ ` _ \| '_ \| |/ _ \  / _ \| |_  | |_) | |_| |/ _` | '__| '__|
+    | |  __/ | | | | | |_) | |  __/ | (_) |  _| |  __/|  _| | (_| | |  | |   
+    |_|\___|_| |_| |_| .__/|_|\___|  \___/|_|   |_|   |_| |_|\__,_|_|  |_|   
+                     |_|                                                     
+\end{Verbatim}
+
+\vfill
+
+\noindent
+\begin{minipage}{\textwidth}
+	\setmonofont{TruetypewriterPolyglOTT}
+	\fvset{baselinestretch=0}
+	\renewcommand{\FancyVerbFormatLine}[1]{\vspace*{-0.5ex}#1}
+	\BVerbatimInput{art/cover.txt}
+\end{minipage}
+
+\vfill
+\vfill
+
+\begin{tabbox}[7][7]
+\centering
+\license
+
+\href{\licenselink}{(\licenselink)}
+
+v\modVer{}~(\modDate{})
+
+{\href{https://vladar.bearblog.dev}{vladar.bearblog.dev}}
+\end{tabbox}
+
+\end{titlepage}
+
+\thispagestyle{empty}
+
+\noindent
+\begin{minipage}{\textwidth}
+	%\begin{tabbox}[4][4]
+	\begin{textbox}
+		\centering
+		Expert module for a party of 4-6 characters of 6-8 levels (\tld36~TPL).
+	\end{textbox}
+	%\end{tabbox}
+\end{minipage}
+
+\setcounter{tocdepth}{0}
+\renewcommand{\cftchapleader}{\normalfont\cftdotfill{\cftdotsep}}
+
+\makeatletter
+\titleclass{\chapter}{straight}
+\chapter*{\contentsname
+	\@mkboth{%
+		\MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+\titleclass{\chapter}{top}
+\@starttoc{toc}%
+\makeatother
+
+\vfill
+
+\noindent
+\begin{minipage}{\textwidth}
+\begin{tabbox}[8][8]
+\begin{uheaderbox}{WARNING!}
+	\centering
+	The information in this booklet is for DM's eyes only!
+	
+	The module also contains spoilers for \emph{B10 Night's Dark Terror}\\since it is set in the aftermath of the events described there.
+\end{uheaderbox}
+\end{tabbox}
+\end{minipage}
+
+\vfill
+
+\noindent
+\begin{minipage}{\textwidth}
+	\centering
+	Writing and illustrations by \author{}.
+	
+	Playtesters: Fairycatto, Ipslor, Kailes. Special thanks to Fritcher.
+	
+	Made with \textbf{Retrotype} (\href{https://github.com/Vladar4/retrotype}{https://github.com/Vladar4/retrotype}).
+\end{minipage}
+
+\break
+\vspace*{1.1\baselineskip}
+
+Hidden deep in the mountains of Hutaaka Valley, the ancient temple of Pflarr stood centuries undisturbed.
+
+Now, something dark has awakened there. Crawling through its dusty halls the evil force tries to escape outside.
+
+\vfill
+
+\chapter{The Valley}
+\label{ch:valley}
+
+\section{Information for the Dungeon Master}
+
+\subsection{In Ages Past}
+
+Long ago, at the highest point of the Hutaakan civilization, one of their high priests fell under the corrupting influence of Thanatos --- the most hated enemy of Pflarr, immortal patron of the jackal-headed Hutaakans. The corruption was noticed in time. Hutaakan clergy captured the heretic and, lest Thanatos' servant rise as his undead minion, sealed him alive in a stone sarcophagus hidden in his own temple.
+
+\tab The story of the forbidden temple was lost during the decline of the Hutaakan culture. Not even the priests of Pflarr now remember the reason why the temple was abandoned.
+
+\subsection{Current Times}
+
+\tab The tribe with which the characters had allied during the events of \emph{B10 Night's Dark Terror} now fully controls the western half of the Lost Valley, but Eastern Hutaaka is still uninhabited since neither Hutaakans nor Traldar have the numbers to resettle here. The other tribe is scattered and nearly extinct by this point.
+
+\tab Not long ago, a lone group of Traldar discovered the temple and entered it, unknowingly freeing the high priest, who immediately rewarded them with a quick and painful death. Still confined by the holy walls of the temple, the high priest now sends his ghouls to bring him new victims, while attempting to perform a dark ritual that will set him free.
+
+\break
+
+\section{Rumors for the Player Characters}
+
+It is said, that the forested mountains to the north-east of the central lake hide an ancient temple of Pflarr --- one of the oldest structures in the valley. It was abandoned so long ago that even the Hutaakans themselves don't remember the reason why.
+
+\tab Each character also knows a single random rumor about the temple:
+
+\paragraph{d10 Rumors}
+\begin{enumerate}
+	\item Forests near the northern road are teeming with the undead. \textbf{(True)}
+	\item There is an ancient secluded colony of Hutaakans living in the northern mountains. \textbf{(False)}
+	\item The temple was nearly destroyed in a large earthquake hundreds of years ago. \textbf{(False)}
+	\item You must approach the temple on all fours, lest the monuments of Pflarr at the entrance smite you dead right there. \textbf{(False)}
+	\item Statues of Hutaakan priests can come alive to smite intruders. \textbf{(True)}
+	\item The temple is full of precious objects of the ancient Hutaakan culture. \textbf{(True)}
+	\item If you listen carefully, you can hear ancient mummified priests whispering prayers to Pflarr. \textbf{(False)}
+	\item Anyone staying in the temple for a night, turns into a jackal-headed monstrosity. \textbf{(False)}
+	\item The temple is said to be carved right into the cliff face. \textbf{(True)}
+	\item The temple is full of deadly traps and hidden passages. \textbf{(True)}
+\end{enumerate}
+
+\break
+
+\section{Hutaakans}
+
+In ancient times these tall and slender jackal-headed humanoids were a civili- zed race obsessed with cultural and religious pursuits, crafts, and trade. Now the fading remains of their people live in isolated communities in the western part of the Lost Valley of Hutaaka.
+
+\section{Traldar}
+
+Former Hutaakan slaves, they are cruel and embittered people, often aggressive and bloodthirsty in battle. Traldar are mostly short, muscular, and almost hairless, except for the backs of their large, strong hands.
+
+\section{Ancient Ruins}
+
+\paragraph{Villages}
+
+A dozen of single-storey stone domiciles of a few rooms each. Some are free-standing, and others are built into the rock.
+
+\paragraph{Other Structures}
+Stone shrines of Pflarr, fountains, and decorated arches are scattered throughout the valley. Since the time of the Traldar uprising, nearly all decorations have been smashed and erased, leaving almost no trace of the Hutaakan craftsmanship.
+
+\skipline
+
+\ulf\textbf{~d20\tab Ruin Inhabitants\tabn{2}~~Treasure}\\
+~1-5\tab	Deserted\\
+~6-8\tab	Harmless mammals\\
+\tabn{2}	or reptiles\\
+~9-10\tab	3d6 \hyperlink{stirge}{stirges}\tabn{4}~~L\\
+~~11\tab	2d4 \hyperlink{hellhound}{hellhounds}\tabn{3}~~C\\
+12-13\tab	1 \hyperlink{swarm}{insect swarm}\\
+~~14\tab	1d4 \hyperlink{lion}{mountain lions}\tabn{2}~~U\\
+15-16\tab	1d4 \hyperlink{lizard}{footpad lizards}\\
+\ulf17-20\tab	1d6 \hyperlink{ghoul}{ghouls (Traldar)}\tabn{2}~~R\\
+
+\break
+
+\section{Random Encounters}
+
+In the wilderness, check for a random encounter once per day and twice per night by rolling a d12 die on the appropriate table.
+
+\skipline
+
+\ulf\textbf{~d12\tab Day Encounter\tabn{2}~~Treasure}\\
+~1-3\tab	no encounter\\
+~4-5\tab	1d4 \hyperlink{lizard}{footpad lizards}\\
+~~6\tab\tab	1 \hyperlink{swarm}{insect swarm}\\
+~~7\tab\tab	1d6 \hyperlink{rattler}{rock rattlers}\\
+~~8\tab\tab	2d4 \hyperlink{hellhound}{hellhounds}\\
+~~9\tab\tab	1d4 \hyperlink{lion}{mountain lions}\tabn{2}~~U\\
+\ulf10-12\tab	1d10 \hyperlink{stirge}{stirges}\\
+
+\skipline
+
+\ulf\textbf{~d12\tab Night Encounter\tabn{2}~~Treasure}\\
+~~1\tab\tab	no encounter\\
+~~2\tab\tab	1d4 \hyperlink{lizard}{footpad lizards}\\
+~3-4\tab	1d10 \hyperlink{bat}{giant bats}\\
+~~5\tab\tab	1d8 \hyperlink{beetle}{giant fire beetles}\\
+~6-7\tab	2d4 \hyperlink{hellhound}{hellhounds}\\
+~~8\tab\tab	1d4 \hyperlink{lion}{mountain lions}\tabn{2}~~U\\
+~~9\tab\tab	1d10 \hyperlink{stirge}{stirges}\\
+\ulf10-12\tab	1d6 \hyperlink{ghoul}{ghouls (Traldar)}\tabn{2}~~R\\
+
+\break
+\cleartorightpage
+\thispagestyle{empty}
+
+~\vfill
+
+\noindent
+\begin{minipage}{\textwidth}
+	\setmonofont{TruetypewriterPolyglOTT}
+	\fvset{fontsize=\footnotesize, baselinestretch=0}
+	\hspace*{-7pt}
+	\BVerbatimInput{art/hutaaka.txt}
+\end{minipage}
+
+\vfill
+
+\break
+
+\break
+\cleartoleftpage
+
+\thispagestyle{empty}
+
+\skipline[0pt]
+
+\noindent
+\begin{minipage}{\textwidth}
+	\setmonofont{TruetypewriterPolyglOTT}
+	\fvset{fontsize=\small, baselinestretch=0}
+	\renewcommand{\FancyVerbFormatLine}[1]{\vspace*{-0.5ex}#1}
+	{\hfill
+	\BVerbatimInput{art/temple.txt}
+	\hfill}
+\end{minipage}
+
+\vfill
+\break
+
+
+\chapter{The Temple}
+
+\section{General Notes}
+
+\begin{itemize}[leftmargin=*]
+\item
+All lesser undead are of Traldar origin, warriors turned into elder ghouls, vocals --- into agarats, and others --- into ghouls.
+\item
+The whole interior (from \hyperlink{room5}{\textbf{room 5}} and on) is completely \textbf{devoid of light}.
+\item
+\textbf{Halls} are 30' high, \textbf{chambers} --- 20', \textbf{corridors} and \textbf{doorways} --- 15' high.
+\item \textbf{Living Statues} stood dormant for millennia and were reanimated just recently by the high priest's will.
+\item No random encounters happen in the temple, but ghouls from the nearby rooms can hear loud noises and come out to investigate. At night, the high priest comes out, accompanied by his servants (see \hyperlink{room14}{\textbf{room 14}}), and travels to \hyperlink{room9}{\textbf{room 9}} to animate new undead servants if the dead bodies are available.
+\end{itemize}
+
+
+\hypertarget{room1}{}
+\section{1. Entrance}
+
+A pair of colossal jackal-headed sculptures of Pflarr sit on both sides of an open dark entrance. Just like the whole temple, they are sculpted out of the rock face.
+
+
+\hypertarget{room2}{}
+\section{2. Traldar Camp}
+
+Abandoned campsite, old fire pit,\\dirty and tattered lizard skins lying around.
+If the camp is searched thoroughly, a small leather bag with \textbf{20~ep} can be found.
+
+
+\hypertarget{room3}{}
+\section{3. Collapsed Building}
+
+A skeleton of a Hutaakan priest is buried under the rubble. Any noise will attract 2d4 \hyperlink{ghoul}{\textbf{ghouls}} skulking nearby, who will try to ambush the party.
+
+\skipline
+\paragraph{Buried Treasure}
+\begin{itemize}[leftmargin=*]
+	\item thin silver bracelets (2 × 50 gp)
+	\item silver star symbol of Pflarr (100 gp)
+\end{itemize}
+
+\begin{textbox}
+	\subparagraph{2d4 ghouls:} AC~6; HD~2*; hp 9 each; MV~90' (30'); \#AT~2~claws/1~bite; D~1d3/1d3/1d3 + paralysis; Save~F2; ML~9; Int~3; AL~C; XP~25; THAC0~18.
+\end{textbox}
+
+
+\hypertarget{room4}{}
+\section{4. The Seal of Pflarr}
+
+An ancient star-shaped holy symbol carved on the floor in front of the entrance still works, blocking undead over 4 HD from leaving the temple.
+
+
+\hypertarget{room5}{}
+\section{5. Outer Hall}
+
+Stucco reliefs that were once covering the walls now lie broken and smashed on the floor. It would take a great amount of time and effort to reassemble some of them back together. If it is done, the characters will see scenes depicting the Hutaakan creation myth: Pflarr sculpting his jackal-headed Hutaakan children out of dust and gifting them with the breath of life.
+
+\tab 6 square 10'-wide \textbf{columns} adorned with masterful reliefs of jackal-headed figures engaged in various forms of arts and crafts.
+
+\tab 6 \hyperlink{statue}{\textbf{jade living statues}}, 10' each one standing near a column, will attack any intruders on sight.
+
+\tab Loud noises have a 2-in-6 chance (check each combat round) of attracting the inhabitants of \hyperlink{room8}{\textbf{room 8}}.
+
+
+\begin{textbox}
+	\subparagraph{6 jade living statues:} AC~4; HD~3+1**; hp 16 each; MV~60' (20'); \#AT~2~hands; D~1d6/1d6; Save~F10; ML~12; Int~7; AL~N; XP~100; THAC0~16.
+\end{textbox}
+
+\enlargethispage{\baselineskip}
+
+\break
+
+\hypertarget{room6}{}
+\section{6. Right-Hand Corridor}
+
+3 \hyperlink{statue}{\textbf{rock/ooze living statues}} stand in corners, camouflaged as parts of bas- reliefs covering stone walls, and will attack once anyone walks to the center of the room, having a normal chance of ambushing the party, if no such statues were encountered before.
+
+\tab Loud noises have a 2-in-6 chance (check each combat round) of attracting the inhabitants of \hyperlink{room8}{\textbf{room 8}}.
+
+\tab The door to \hyperlink{room7}{\textbf{room 7}} stands open. A~\textbf{secret door} leading to \hyperlink{room13}{\textbf{room 13}} is hidden as a part of the bas-relief on the wall opposing the opened door.
+
+\begin{textbox}
+	\subparagraph{3 rock/ooze living statues:} AC~4; HD~5**; hp 23 each; MV~60' (20'); \#AT~2~squirts of gray ooze; Save~Dw5; ML~11; Int~7; AL~N; XP~425; THAC0~15.
+	
+	\textbf{Gray ooze blobs:} AC~8; HD \half; hp 4; MV~10' (3'); \#AT~1; D~2d4 + dissolve metal; Save~F1; ML~12; Int~0; AL~N; XP~25; THAC0~19.
+\end{textbox}
+
+
+\hypertarget{room7}{}
+\section{7. Defiled Burial Chamber}
+
+Three open sarcophagi lie open, their lids scattered on the floor. Half-smashed reliefs on the walls tell a story of Hutaakan clerics defeating the corrupted high priest and burying him alive in this sacred place to stop the spread of evil.
+
+\tab When the Traldar broke into the temple, they first came here, unknow- ingly breaking the sacred seals that kept the high priest confined. The other two sarcophagi were of his apprentices, now serving their undead master in \hyperlink{room14}{\textbf{room 14}}.
+
+\skipline
+\paragraph{Treasure}
+\begin{itemize}[leftmargin=*]
+	\item jackal-headed porcelain figurines with tiny opal eyes (3~×~1200 gp)
+\end{itemize}
+
+(If the opals are gouged out, they will cost 300~gp each, while the figurine's value drops to 400~gp.)
+
+
+\hypertarget{room8}{}
+\section{8. Side Chamber}
+
+The chamber is empty except for shards of bones scattered over the floor and gnawed upon by 8 \hyperlink{ghoul}{\textbf{ghouls}} and 1 \hyperlink{agarat}{\textbf{agarat}}.
+
+\tab Loud noises in neighboring rooms (\hyperlink{room5}{\textbf{5}}, \hyperlink{room6}{\textbf{6}}, \hyperlink{room9}{\textbf{9}}) have a 2-in-6 chance (check each combat round) of attracting the ghouls to investigate the disturbance.
+
+\tab A defective \hyperlink{statue}{\textbf{rock/ooze statue}} is suspended by ropes over the entrance to the corridor leading to \hyperlink{room9}{\textbf{room 9}} --- see the \hyperlink{statue-trap}{\textbf{Statue Trap}} section below.
+
+\begin{textbox}
+	\subparagraph{8 ghouls:} AC~6; HD~2*; hp 2×14, 2×9, 12, 10, 2×4; MV~90' (30'); \#AT~2~claws/ 1~bite; D~1d3/1d3/1d3 + paralysis; Save~F2; ML~9; Int~3; AL~C; XP~25; THAC0~18.
+	
+	\subparagraph{1 agarat:} AC~4; HD~4+3*; hp 23; MV~90' (30'); \#AT~2~claws/1~bite; D~1d3/1d3/1d3 + scream; Save~F5; ML~11; Int~4; AL~C; XP~200; THAC0~15.
+\end{textbox}
+
+
+\hypertarget{room9}{}
+\section{9. Preparation Chamber}
+
+4 \hyperlink{ghoul}{\textbf{ghouls}}, 2 \hyperlink{agarat}{\textbf{agarats}}, and 1 \hyperlink{elder-ghoul}{\textbf{elder ghoul}} prepare the bodies of other slain Traldar to be raised as undead by the high priest later.
+
+\tab Loud noises in \hyperlink{room8}{\textbf{room 8}} have a 2-in-6 chance (check each combat round) of attracting the ghouls to investigate the disturbance.
+
+\tab A defective \hyperlink{statue}{\textbf{rock/ooze statue}} is suspended by ropes over the entrance to the corridor leading to \hyperlink{room9}{\textbf{room 8}} --- see the \hyperlink{statue-trap}{\textbf{Statue Trap}} section below.
+
+\skipline
+\paragraph{Treasure}
+\begin{itemize}[leftmargin=*]
+	\item jackal-headed porcelain figurines (2~×~500 gp)
+	\item golden anklet (500 gp)
+\end{itemize}
+
+
+\begin{textbox}
+	\subparagraph{4 ghouls:} AC~6; HD~2*; hp 14, 2×8, 2; MV~90' (30'); \#AT~2~claws/1~bite; D~1d3/1d3/1d3 + paralysis; Save~F2; ML~9; Int~3; AL~C; XP~25; THAC0~18.
+	
+	\subparagraph{2 agarats:} AC~4; HD~4+3*; hp 23, 15; MV~90' (30'); \#AT~2~claws/1~bite; D~1d3/1d3/1d3 + scream; Save~F5; ML~11; Int~4; AL~C; XP~200; THAC0~15.
+	
+	\subparagraph{1 elder ghoul:} AC~5; HD~5**; hp 25; MV~90' (30'); \#AT~2~claws/1~bite + special; D~1d4/1d4/1d6 + paralysis; Save~F4; ML~11; Int~12; AL~C; XP~175; THAC0~15.
+\end{textbox}
+
+	\tab Every night the high priest comes here to animate new undead servants:
+	
+	\ulf\textbf{d6}\tab\tab\textbf{Undead Reinforcements}\\
+	~1\tab\tab	1 \hyperlink{elder-ghoul}{\textbf{elder ghoul}}\\
+	2-3\tab\tab	1 \hyperlink{agarat}{\textbf{agarat}} and 1 \hyperlink{ghoul}{\textbf{ghoul}}\\
+	\ulf4-6\tab\tab	5 \hyperlink{ghoul}{\textbf{ghouls}}
+
+
+
+\hypertarget{statue-trap}{}
+\section{Statue Trap}
+
+A defective \hyperlink{statue}{\textbf{rock/ooze statue}} is suspended by ropes under the ceiling:
+
+\begin{itemize}[leftmargin=*]
+	\item The trap is triggered by the lever in the farthest adjacent corner or by cutting the rope leading to it. Agarats and elder ghouls will surely try to use it against the intruders.
+	\item Anyone standing below the statue must Save vs. Wands or take 2d6 damage from the statue falling over them. Noticing the trap in advance grants a~+4 bonus to this saving throw.
+	\item Those who failed this Save are pinned under until making an open doors check (with a +1 bonus per helper).
+	\item On the next round, \hyperlink{gray-ooze}{\textbf{gray ooze}} starts seeping out of the cracked statue, attacking the closest character.
+\end{itemize}
+
+\break
+\vspace*{-1.11\baselineskip}
+\begin{textbox}
+	\subparagraph{1 gray ooze (trap):} AC~8; HD~3*; hp 15; MV~10' (3'); \#AT~1; D~2d8 + dissolve metal; Save~F2; ML~12; Int~0; AL~N; XP~50; THAC0~17.
+\end{textbox}
+
+
+
+\hypertarget{room10}{}
+\section{10. Left-Hand Corridor}
+
+3 \hyperlink{statue}{\textbf{rock/ooze living statues}} stand in corners, camouflaged as parts of bas- reliefs covering stone walls, and will attack once anyone walks to the center of the room, having a normal chance of ambushing the party, if no such statues were encountered before.
+
+\tab The door to \hyperlink{room11}{\textbf{room 11}} is still sealed and intact.
+
+\tab A~\textbf{secret door} leading to \hyperlink{room13}{\textbf{room 13}} is hidden as a part of the bas-relief on the wall opposing the sealed door.
+
+\begin{textbox}
+	\subparagraph{3 rock/ooze living statues:} AC~4; HD~5**; hp 23 each; MV~60' (20'); \#AT~2~squirts of gray ooze; Save~Dw5; ML~11; Int~7; AL~N; XP~425; THAC0~15.
+	
+	\tab\textbf{Blobs of gray ooze:} AC~8; HD \half; hp 4 each; MV 10' (3'); \#AT~1; D~2d4 + dissolve metal; Save~F1; ML~12; Int~0; AL~N; XP~25; THAC0~19.
+\end{textbox}
+
+
+\hypertarget{room11}{}
+\section{11. Sealed Burial Chamber}
+
+The seal can be broken by an open doors check with a +1 bonus to the roll.
+
+\tab The whole room is \textbf{trapped}, releas- ing a cloud of rotting gas the moment the door is opened. Everyone standing around must immediately Save vs. Poison or contract a mummy \textbf{disease}: this hide- ous rotting affliction prevents all magical healing and slows normal heal- ing to 10\% of the normal rate. The disease lasts until magically cured.
+
+{~\\\hfill\em(Continued on the following page)}
+
+\break
+
+\tab There are six untouched sarcophagi in the room containing mummified bodies of lesser Hutaakan priests.
+
+\skipline
+\paragraph{Treasure}
+\begin{itemize}[leftmargin=*]
+	\item jackal-headed porcelain figurines with tiny opal eyes (6~×~1200 gp)
+\end{itemize}
+
+(If the opals are gouged out, they will cost 300~gp each, while the figurine's value drops to 400~gp.)
+
+
+\hypertarget{room12}{}
+\section{12. Hidden Chamber}
+
+12 \hyperlink{statue}{\textbf{silver living statues}} standing on shelves will attack the intruders if any treasure is disturbed.
+
+\skipline
+\paragraph{Treasure}
+\begin{itemize}[leftmargin=*]
+	\item 11,000 sp and 3,000 pp
+	\item golden star symbols of Pflarr (12~×~1,000 gp)\textsuperscript{1}
+	\item hutaakan tapestries (3 × 350 gp, 2,000 cn each)
+	\item potions of gaseous form, heroism, and invulnerability
+	\item scroll of illumination
+	\item bronze shield +2
+\end{itemize}
+
+Additionally, each silver statue, if destroyed, is worth 50 gp in silver.
+
+\begin{textbox}
+	\subparagraph{12 silver living statues:} AC~4; HD~1+1**; hp 6 each; MV~120' (40'); \#AT~1~bite; D~2d4; Save~F2; ML~12; Int~7; AL~N; XP~19; THAC0~18.
+\end{textbox}
+
+\begin{figure}[b]
+\color{darkgray}
+\uln[8]
+
+\textsuperscript{1} Golden stars are set into the chests of the statues. Physical destruction of a statue lowers the value of each star to 1d8 × 10\% of its full cost.
+\end{figure}
+
+
+\hypertarget{room13}{}
+\section{13. Inner Hall}
+
+The barred door can be broken by an open doors check with a --1 penalty to the roll, alerting the high priest, who will then attempt to ambush the party from behind the curtain.
+
+
+\tab Vile visages and symbols of Thana- tos are drawn over the fine mosaics on the walls and floor of this hall with some foul-smelling black substance.
+
+\tab If examined by an alchemist, the black substance can be identified as ancient embalming oils.
+
+\tab The mosaics depict the Hutaakan history, the discovery of the Traldar, the golden age of their alliance, and finally, the gnoll invasion that forced the Hutaakans to retreat back to their isolated valley.
+
+
+\hypertarget{room14}{}
+\section{14. Ritual Chamber}
+
+Behind the heavy curtain, the \hyperlink{mummy}{\textbf{Mummy of the High Priest}} kneels before the desecrated altar, performing a foul ritual of Thanatos. Mummies of two corrupted Hutaakan priests stand around (2 \hyperlink{leech}{\textbf{death leeches}} in disguise).
+
+\skipline
+\paragraph{High Priest's Carried Treasure}
+\begin{itemize}[leftmargin=*]
+\item star ruby eyes (2 × 10,000 gp)
+\item golden bracelets (2 × 3,000 gp)
+\item bejeweled golden necklace (5,000 gp)
+\item potion of poison
+\item ring of fire resistance
+\item staff of harming
+\end{itemize}
+
+
+\begin{textbox}
+	\subparagraph{1 mummy of the high priest:} AC~3; HD~5+1**; hp 33; MV~60' (20'); \#AT~1~touch or staff; D~1d12 + disease or 1d6+1 or spell; Save~C5; ML~12; Int~6; AL~C; XP~925; THAC0~14.
+	
+	\skipline
+	\subparagraph{2 death leeches:} AC~7; HD~8*; hp 48, 24; MV~240' (80'); \#AT~1~touch; D 1d10/round; Save~F8; ML~10; Int~4; AL~C; XP~1200; THAC0~12.
+\end{textbox}
+\enlargethispage{\baselineskip}
+
+\cleartorightpage
+\onecolumn
+
+\chapter{Monsters}
+
+\subparagraph{References to Rule Books:}
+The following abbreviations are used when referring to specific pages in the rule books:
+\textbf{BD} --- Basic Dungeon Masters Book,
+\textbf{CC} --- Creature Catalogue,
+\textbf{EX} --- Expert Rule Book,
+\textbf{RC} --- Rules Cyclopedia.
+
+\newcommand{\setAnimalTabPositions}{%
+	\setCustomTabPositions{%
+		4,	4,	11,	16,	15,	6,	4,	5,	4,	5}%
+%	AC	HD	MV	AT	Dmg	Sv	ML	Int	AL	XP	THAC0
+}
+
+\newcommand{\headerAnimal}{%
+	\textbf{AC\tab HD\tab MV\tab \#AT \tab Damage\tab Save\tab ML\tab Int\tab AL\tab XP\tab THAC0}\\%
+}
+
+\skipline
+\section{Animals and Monsters}
+
+\setCustomTabPositions{
+		4,	4,	26,	8,	9,	6,	4,	5,	4,	5}%
+%	AC	HD	MV	AT	Dmg	Sv	ML	Int	AL	XP	THAC0
+
+\hypertarget{bat}{}
+\paragraph{Giant Bat}
+\rightbox[\aparskip]{(BD25/RC159)}
+\headerAnimal
+6\tab 2\tab 30'(10') fly 180'(60')\tab 1 bite\tab 1d4\tab F1\tab 8\tab 2\tab N\tab 20\tab 18
+
+5'-long bat with a wingspan over 25'.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+Drinks blood and may attack humans if extremely hungry.
+\end{itemize}
+
+
+\skipline\skipline
+\hypertarget{beetle}{}
+\paragraph{Giant Fire Beetle}
+\rightbox[\aparskip]{(BD26/RC160)}
+\headerAnimal
+4\tab 1+2\tab 120'(40')\tab 1 bite\tab 2d4\tab F1\tab 7\tab 0\tab N\tab 15\tab 18
+
+2\half'-long beetle with two glowing glands above the eyes and one near the back of the abdomen. These glands give off light in a 10' radius and will continue to glow for 1d6 days after they are removed.
+
+
+\skipline\skipline
+\hypertarget{lizard}{}
+\paragraph{Giant Footpad Lizard}
+\rightbox[\aparskip]{(CC16)}
+\headerAnimal
+6\tab 2+1\tab 120'(40') climb 60'(20') \tab 1 bite\tab d6\tab F2\tab 7\tab 2\tab N\tab 25\tab 17
+
+Slender giant lizards with long spindly legs with toes flattened out to form round sticky pads, making the lizards excellent climbers.
+
+\setAnimalTabPositions{}
+
+\skipline\skipline
+\hypertarget{hellhound}{}
+\paragraph{Hellhound}
+\rightbox[\aparskip]{(EX51/RC184)}
+\headerAnimal
+4\tab 3**\tab 120'(40')\tab d6 roll:\tab 1 target:\tab F3\tab 9\tab 12\tab C\tab 65\tab 17
+\\\tabn{3}\textit{1-2:} 1 breath\tab 3d6 (Save vs. Breath for half)
+\\\tabn{3}\textit{3-6:} 1 bite\tabn{1}1d6
+
+Reddish-brown doglike monster as big as a small pony.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+Immune to normal fire.
+\item
+Can \textbf{detect invisible} at 75\% chance per round, range 60'.
+\end{itemize}
+
+
+\vfill
+
+\setCustomTabPositions{%
+	12,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	4}
+
+\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\\
+\tab\textbf{F1-2}\tab12\tab13\tab14\tab15\tab16
+\tab\textbf{F3-4}\tab11\tab12\tab13\tab14\tab15
+
+\break
+
+
+\hypertarget{swarm}{}
+\paragraph{Insect Swarm}
+\rightbox[\aparskip]{(EX52/RC187)}
+
+Roll a d6 for the swarm size: 1-3 Small, 4-5 Medium, 6 Large.
+
+\setCustomTabPositions{%
+		8,	4,	4,	23,	8,	9,	6,	4,	5,	4}%
+%	Sz	AC	HD	MV	AT	Dmg	Sv	ML	Int	AL	XP
+
+\ulf\textbf{Size\tab AC\tab HD\tab MV\tab \#AT \tab Damage\tab Save\tab ML\tab Int\tab AL\tab XP}\\%
+\textbf{Small}\tab7\tab 2*\tab 30'(10') fly 60'(20')\tab 1 area\tab special\tab NM\tab 11\tab 0\tab N\tab 25\\%
+\textbf{Medium}\tab7\tab 3*\tab 30'(10') fly 60'(20')\tab 1 area\tab special\tab NM\tab 11\tab 0\tab N\tab 50\\%
+\ulf\textbf{Large}\tab7\tab 4*\tab 30'(10') fly 60'(20')\tab 1 area\tab special\tab NM\tab 11\tab 0\tab N\tab 125\\%
+
+A group of small insects filling a 10'x10'x30' area or more.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+\textbf{Armored} victims (and monsters with AC~5 or better) within the area take \textbf{2 damage per round automatically}. \textbf{Unarmored} victims (and monsters with AC~6 or worse) take \textbf{4 damage per round automatically}.
+\item
+Anyone running out of the swarm or swatting the insects (a weapon or a torch must be used) takes only \textbf{1 damage per round}.
+\item
+A victim can escape by disappearing from sight or diving under water (the swarm dies in one round, during which normal damage is done).
+\end{itemize}
+
+
+\setAnimalTabPositions{}
+
+\skipline\skipline
+\hypertarget{lion}{}
+\paragraph{Mountain Lion}
+\rightbox[\aparskip]{(BD27/RC163)}
+\headerAnimal
+6\tab 3+2\tab 150'(50')\tab 2 claws/1 bite\tab 1d3/1d3/1d6\tab F2\tab 8\tab 2\tab N\tab 50\tab 16
+
+Tawny-furred feline predator.
+
+
+\skipline\skipline
+\hypertarget{rattler}{}
+\paragraph{Rock Rattler}
+\rightbox[\aparskip]{(CC16)}
+\headerAnimal
+7\tab 1* \tab 90'(30')\tab 1 bite\tab 1 + poison\tab F1\tab 7\tab 1\tab N\tab 13\tab 19
+
+2'-long gray rattlesnake.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+Anyone bitten must \textbf{Save vs. Poison} or take \textbf{extra 1d4+1 damage}.
+\end{itemize}
+
+\setCustomTabPositions{%
+		4,	4,	24,	9,	11,	6,	4,	5,	4,	4}%
+%	AC	HD	MV	AT	Dmg	Sv	ML	Int	AL	XP	THAC0
+
+\skipline\skipline
+\hypertarget{stirge}{}
+\paragraph{Stirge}
+\rightbox[\aparskip]{(BD38/RC208)}
+\headerAnimal
+7\tab1*\tab 30'(10') fly 180'(60')\tab 1 sting\tab 1d3 + 1d3\tab F2\tab 9\tab 1\tab N\tab 13\tab 19/17
+A birdlike creature with a long nose.\tab~~~~~\ol{round}\hfill diving attack\op{|}{\^{}}~
+
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+\textbf{+2 on the first attack roll} due to its speedy diving attack.
+\item
+On successful hit it attaches itself to the victim, sucking for \textbf{1d3~damage per round automatically} until the victim is dead.
+\end{itemize}
+
+\defaultTabPositions{}
+
+\vfill
+
+\setCustomTabPositions{%
+	12,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	4}
+
+\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\\
+\tab\textbf{NM}\tab13\tab14\tab15\tab16\tab17
+\tab\textbf{F1-2}\tab12\tab13\tab14\tab15\tab16
+
+
+\break
+
+
+\hypertarget{statue}{}
+\section{Hutaakan Living Statues}
+\makeatletter
+\rightbox[\asecskip]{(CC28)}
+\makeatother
+
+Jackal-headed living statues of the ancient Hutaakan civilization.
+
+All are immune to \textbf{sleep}, \textbf{charm}, and \textbf{hold} spells.
+
+\setCustomTabPositions{
+		10,	4,	6,	11,	11,	9,	6,	4,	5,	4,	5}
+%	Typ	AC	HD	MV	AT	Dmg	Sv	ML	Int AL	XP	THAC0
+
+\ulf\textbf{\tab AC\tab HD\tab MV\tab \#AT \tab Damage\tab Save\tab ML\tab Int\tab AL\tab XP\tab THAC0}
+
+\textbf{Silver}\tab 4\tab 1+1*\tab 120'(40')\tab 1 bite\tab 2d4\tab F2\tab 12\tab 7\tab N\tab 19\tab 18
+
+\textbf{Rock/Ooze}\tab 4\tab 5**\tab 60'(20')\tab 2 squirts\tab special\tab Dw5\tab 11\tab7\tab N\tab 425\tab 15
+
+\ulf\textbf{Jade*}\tab 4\tab 3+1**\tab 60'(20')\tab 2 hands\tab 1d6/1d6\tab F10\tab 12\tab7\tab N\tab 100\tab 16
+
+
+
+\paragraph{Silver Living Statue}
+\tabpar[4]{%
+1'-tall; 50 gp cost in silver if killed.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	Immune to non-metal weapons and non-magical fire.
+	\item
+	Half damage from edged weapons.
+\end{itemize}
+}
+\vspace*{-\baselineskip}
+\paragraph{Rock/Ooze Living Statue}
+\tabpar[4]{%
+11'-tall.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	Can conceal itself by merging into rock surfaces.
+	\item
+	Filled with \hyperlink{gray-ooze}{gray ooze} and can squirt two \hyperlink{gray-ooze-blob}{blobs} per round from fingertips.
+\end{itemize}
+}
+\vspace*{-\baselineskip}
+\paragraph{Jade Living Statue}
+\tabpar[4]{%
+7'-tall; when~destroyed, crumble to worthless powder.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	Immune to non-magical weapons.
+	\item
+	Magical weapons have no bonuses to hit or damage rolls.
+\end{itemize}
+}
+
+\setCustomTabPositions{
+		4,	11,	9,	5,	22,	6,	4,	5,	4,	5}
+%	AC	HD	MV	AT	Dmg	Sv	ML	Int AL	XP	THAC0
+
+
+\hypertarget{gray-ooze}{}
+\paragraph{Gray Ooze}
+\rightbox[\aparskip]{(BD31/RC181)}
+\headerAnimal
+8\tab 3*\tab10'(3')\tab 1\tab 2d8 + dissolve metal\tab F2\tab 12\tab 0\tab N\tab 50\tab 17\\
+
+This seeping horror looks like wet stone \dash\ usually a patch about 8' in diameter, or a boulder about 4' in diameter \dash\ and is difficult to see.
+
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	Cannot be harmed by cold or fire, but can be harmed by weapons and lightning.
+	\item
+	Acid does 2d4 damage if it touches bare skin and will dissolve and destroy normal armor or weapons in 1 round, and magical items in 1 turn.
+	\item
+	After the first hit, the ooze sticks to its victim, automatically destroying any normal armor and continuing to inflict 2d8 damage per round.
+\end{itemize}
+
+\skipline
+
+\hypertarget{gray-ooze-blob}{}
+\paragraph{Gray Ooze Blob}
+\headerAnimal
+8\tab \half(4 hp)\tab10'(3')\tab 1\tab 2d4 + dissolve metal\tab F1\tab 12\tab 0\tab N\tab 25\tab 19\\
+
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	Cannot be harmed by cold or fire, but can be harmed by weapons and lightning.
+	\item
+	Acid does 2d4 damage if it touches bare skin and will dissolve and destroy normal armor or weapons in 2 rounds, and magical items in 2 turns.
+	\item
+	After the first hit, the ooze sticks to its victim, automatically destroying any normal armor and continuing to inflict 2d4 damage per round.
+\end{itemize}
+
+\vfill
+
+\setCustomTabPositions{%
+	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	4}
+
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\\
+\textbf{F1-2}\tab12\tab13\tab14\tab15\tab16\tab
+\textbf{F10}\tab7\tab8\tab9\tab10\tab11\tab
+\textbf{Dw5}\tab6\tab7\tab8\tab10\tab9
+
+\break
+
+
+\newcommand{\setUndeadTabPositions}{%
+	\setCustomTabPositions{%
+		4,	5,	11,	16,	14,	6,	4,	5,	4,	6}%
+	%	AC	HD	MV	AT	Dmg	Sv	ML	Int	AL	XP	THAC0
+}
+
+\newcommand{\headerUndead}{%
+	\textbf{AC\tab HD\tab MV\tab \#AT \tab Damage\tab Save\tab ML\tab Int\tab AL\tab XP\tab THAC0}\\%
+}
+
+\setUndeadTabPositions
+
+\section{Undead}
+
+All undead are not affected by special attacks that affect only living creatures (such as poison) or by spells that affect the mind.
+
+
+\hypertarget{agarat}{}
+\paragraph{Agarat*}
+\rightbox[\aparskip]{(CC83)}
+\headerUndead
+4\tab 4+3*\tab 90'(30')\tab 2 claws/1 bite\tab 1d3/1d3/1d3\tab F5\tab 11\tab 4\tab C\tab 200\tab 15
+\\\tabn{4}+~scream
+
+Can only be distinguished from ghouls by their blood-curdling screams and their inability to paralyze victims.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+Can only be hit by silver or magical weapons.
+\item
+Immune to \textbf{sleep}, \textbf{charm}, and \textbf{hold} spells.
+\item
+\textbf{Turned} as spectres.
+\item
+\textbf{Scream (1/turn):} All within 20' must Save vs. Spells (adjusted by Wisdom) or suffer a temporary 1 level energy drain for 1d4 turns. This effect is cumulative: any creature temporarily drained of all life energy will fall unconscious and cannot be woken for 2d6 turns.
+\end{itemize}
+
+
+\skipline
+\hypertarget{elder-ghoul}{}
+\paragraph{Elder Ghoul}
+\rightbox[\aparskip]{(CC95)}
+\headerUndead
+5\tab 5**\tab 90'(30')\tab 2 claws/1 bite\tab 1d4/1d4/1d6\tab F4\tab 11\tab 12\tab C\tab 175\tab 15
+\\\tabn{3}+~special\tab +~special
+
+%A more powerful form of ghoul.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+Immune to \textbf{sleep}, \textbf{charm}, and \textbf{hold} spells.
+\item
+\textbf{Turned} as wraiths.
+\item
+When attacked, a sphere of eerie green light forms around its head, expanding at a rate of 5'/round ut to a maximum radius of 25'. Anyone in the area must Save vs. Spells or suffer a chilling weakness and a --2 penalty to their hit and damage rolls.
+\item
+Any hit from an elder ghoul will \textbf{paralyze} any creature of ogre-size or smaller (except elves) for 2d4 turns unless Save vs. Paralysis is made successfully. Once an opponent is paralyzed, the ghoul will target another opponent.
+\end{itemize}
+
+
+\skipline
+\hypertarget{ghoul}{}
+\paragraph{Ghoul}
+\rightbox[\aparskip]{(BD30/RC178)}
+\headerUndead
+6\tab 2*\tab 90'(30')\tab 2 claws/1 bite\tab 1d3/1d3/1d3\tab F2\tab 9\tab 3\tab C\tab 25\tab 18
+\\\tabn{4}+~paralysis
+
+Hideous beastlike creatures who will attack and eat any living thing. They have no real memories of their former lives, do not talk, and have little more than animal intelligence.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+\item
+Immune to \textbf{sleep} and \textbf{charm} spells.
+\item
+Any hit from a ghoul will \textbf{paralyze} any creature of ogre-size or smaller (except elves) for 2d4 turns unless Save vs. Paralysis is made successfully. Once an opponent is paralyzed, the ghoul will target another opponent.
+\end{itemize}
+
+\vfill
+
+\setCustomTabPositions{%
+	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	4}
+
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\\
+\textbf{F1-2}\tab12\tab13\tab14\tab15\tab16\tab
+\textbf{F3-4}\tab11\tab12\tab13\tab14\tab15\tab
+\textbf{F5}\tab10\tab11\tab12\tab13\tab14
+
+\break
+
+\setUndeadTabPositions{}
+
+\hypertarget{leech}{}
+\paragraph{Death Leech}
+\rightbox[\aparskip]{(CC84)}
+\headerUndead
+7\tab 8*\tab 240'(80')\tab 1 touch\tab 1d10/round\tab F8\tab 10\tab 4\tab C\tab 1200\tab 12
+
+A large flat and translucent amoeba that shimmers with a variety of pale colors. 8 writhing 3'-long whip-like tendrils extend from the sides of its body.
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	\textbf{Turned} as special.
+	\item
+	Can \textbf{polymorph} itself to appear as any undead (of vampire strength or weaker). This mimicry is not detected as magical.
+	\item
+	When moving to attack, changes to its natural form, writhing forth horribly at half-speed this round, and at full speed once it has metamorphosed.
+	\item
+	Attacks as though its victims have AC~9 (adjusted by magical armor bonuses but not Dexterity). On hit, the victim is immobilized and automatically drained for 1d10 hp/round. Victims who Save vs. Spells take half damage that round.
+	\item
+	Half of the damage inflicted on a death leech is also suffered by the victim it is currently wrapped around.
+	\item
+	If killed in its polymorphed state, retains that form until touched, then crumples to its natural form and immediately rots away.
+\end{itemize}
+
+
+\skipline
+\hypertarget{mummy}{}
+\paragraph{Mummy of the High Priest*}
+\rightbox[\aparskip]{(New monster)}
+
+\setCustomTabPositions{%
+		4,	9,	10,	10,	17,	6,	4,	5,	4,	6}%
+%	AC	HD	MV	AT	Dmg	Sv	ML	Int	AL	XP	THAC0
+
+\headerUndead
+3\tab 5+1****\tab 60'(20')\tab 1 touch\tab 1d12 + disease\tab C5\tab 12\tab 6\tab C\tab 925\tab 14
+\\\tabn{3}or staff\tab 1d6+1 or spell
+
+\begin{itemize}[leftmargin=*,label=\itshape\textbullet]
+	\item
+	Everyone seeing a mummy must Save vs. Paralysis or stop, paralyzed with \textbf{fear}, until the mummy is out of sight.
+	\item
+	Immune to \textbf{sleep}, \textbf{charm}, and \textbf{hold} spells.
+	\item
+	\textbf{Turned} as special.
+	\item
+	Can be damaged only by spells, fire, or magical weapons,\\all of which only do half damage + ring of fire resistance.
+	\item
+	\textbf{Ring of Fire Resistance:}
+	\begin{itemize}[leftmargin=*,label=\bfseries\textbullet]
+		\item Immunity to normal fires.
+		\item +2~bonus on saving throws vs. fire spells and red dragon breath.
+		\item Subtract 1 point from each die of fire damage to the wearer (minimum of 1 damage per die).
+	\end{itemize}
+	\item
+	In addition to damage, the touch also causes \textbf{disease} (no save). This hideous rotting affliction prevents all magical healing and slows normal healing to 10\% of the normal rate. The disease lasts until magically cured.
+	\item
+	\textbf{Staff of Harming:} clerics only, 13 charges left:\\
+		1 charge ~--- 1d6+1 damage in melee (normal attack roll, no save),\\
+		2 charges --- cause blindness,\\
+		2 charges --- cause disease,\\
+		3 charges --- cause serious wounds,\\
+		4 charges --- create poison.\\
+\end{itemize}
+
+\vfill
+
+\setCustomTabPositions{%
+	12,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	6,	6,	4,	4,	4,	4,	4}
+
+\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\tab
+\overprintw[24\charwidth]{\_}%
+\textbf{Save\tab D\tab W\tab P\tab B\tab S}\\
+
+\tab\textbf{F8}\tab8\tab9\tab10\tab11\tab12
+\tab\textbf{C5}\tab10\tab11\tab13\tab15\tab14
+\hfill Ω
+
+\defaultTabPositions{}
+
+\end{document}
