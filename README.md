@@ -15,5 +15,5 @@ Made with [Retrotype](https://github.com/Vladar4/retrotype/), so make sure to do
 
 - [Retrotype](https://github.com/Vladar4/retrotype/)
 - [itch.io](https://vladar.itch.io/the-forbidden-temple-of-pflarr)
-- [blog](https://vladar.itch.io/the-forbidden-temple-of-pflarr)
+- [blog](https://vladar.bearblog.dev/the-forbidden-temple-of-pflarr/)
 
