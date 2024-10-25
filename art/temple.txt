@@ -3,7 +3,7 @@
   ────────────    |         ·   ·   │   ·   └┴─┴┘   ·   │                  Doors:            
    THE TEMPLE     N    Scale 10'    │                   │            open  closed  secret    
   ────────────    |         ·   ·   │   ·   ·   ·   ·   │              ╥      ╥     │ │      
-                  ^                 │         14        │              ║            │S│      
+                  ^                 │         14        │                     ║     │S│      
   ▒▒░░░ Rubble         *   Statue   │   ·   ·   ·   ·   │              ╨      ╨     │ │      
                                     │                   │                                    
   ----- Stairs         T   Trap     │   ·   ·   ·   ·   │              Columns:    Altar     
